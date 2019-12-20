@@ -1,7 +1,7 @@
 # Archetype of a Haskell project built with Nix
 
 ```
-$ docker build --tag jeroenvm/nix .
+$ docker build --tag jeroenvm/nix . # Optional. It is also available on Docker Hub
 $ docker run -ti -v "${HOME}:${HOME}" -w "$(pwd)" jeroenvm/nix
 $ nix-shell -p "haskellPackages.ghcWithPackages (pkgs: [pkgs.http2-grpc-proto-lens])"
 [nix-shell:~/.nix-defexpr]# ghci
