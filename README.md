@@ -2,7 +2,7 @@
 
 ```
 $ docker build --tag jeroenvm/nix . # Optional. It is also available on Docker Hub
-$ docker run -ti -v "${HOME}:${HOME}" -w "$(pwd)" jeroenvm/nix
+$ docker run --rm -ti -v "${HOME}:${HOME}" -w "$(pwd)" jeroenvm/nix
 $ nix-shell -p "haskellPackages.ghcWithPackages (pkgs: [pkgs.http2-grpc-proto-lens])"
 [nix-shell:~/.nix-defexpr]# ghci
 Prelude> import Network.GRPC.HTTP2.ProtoLens
