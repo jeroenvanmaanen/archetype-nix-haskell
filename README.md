@@ -1,22 +1,19 @@
 # Archetype of a Haskell project built with Nix
 
 ```
-$ docker build --tag jeroenvm/nix . # Optional. It is also available on Docker Hub
-$ docker run --rm -ti -v "${HOME}:${HOME}" -w "$(pwd)" jeroenvm/nix
-$ nix-shell -p "haskellPackages.ghcWithPackages (pkgs: [pkgs.http2-grpc-proto-lens])"
-[nix-shell:~/.nix-defexpr]# ghci
+[host]$ docker build --tag jeroenvm/nix . # Optional. It is also available on Docker Hub
+[host]$ docker run --rm -ti -v "${HOME}:${HOME}" -w "$(pwd)" jeroenvm/nix
+[container]$ nix-shell -p "haskellPackages.ghcWithPackages (pkgs: [pkgs.http2-grpc-proto-lens])"
+[nix-shell]# ghci
 Prelude> import Network.GRPC.HTTP2.ProtoLens
 
-$ nix-shell --pure shell.nix
+[container]$ nix-shell --pure shell.nix
+[nix-shell]# ghci
 Prelude> import Network.HTTP2.Client
 
-$ nix-shell --pure -p cabal2nix --run "cabal2nix ." > default.nix
-$ nix-build release.nix
-$ result/bin/archetype-nix-haskell
-```
+[container]$ nix-shell --pure -p cabal2nix --run "cabal2nix ." > default.nix
+[container]$ nix-build release.nix
+[container]$ result/bin/archetype-nix-haskell
 
-## Scratch
-
-```
-NIX_PATH='/nix/var/nix/profiles/per-user/root/channels' nix-env -f "<nixpkgs>" -iA haskellPackages."http2-grpc-proto-lens"
+[container]$ NIX_PATH='/nix/var/nix/profiles/per-user/root/channels' nix-env -f "<nixos>" -iA haskellPackages."http2-grpc-proto-lens"
 ```
