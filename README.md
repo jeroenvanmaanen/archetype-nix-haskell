@@ -1,4 +1,4 @@
-# Test Haskell with Nix
+# Archetype of a Haskell project built with Nix
 
 ```
 $ docker build --tag jeroenvm/nix .
