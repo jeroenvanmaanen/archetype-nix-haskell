@@ -17,5 +17,5 @@ Prelude> import Network.HTTP2.Client
 [container]$ nix-build release.nix
 [container]$ result/bin/archetype-nix-haskell
 
-[container]$ NIX_PATH='/nix/var/nix/profiles/per-user/root/channels' nix-env -f "<nixos>" -iA haskellPackages."http2-grpc-proto-lens"
+[container]$ nix-env -f '<.>' -iA haskellPackages."http2-grpc-proto-lens"
 ```
