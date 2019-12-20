@@ -9,6 +9,10 @@ Prelude> import Network.GRPC.HTTP2.ProtoLens
 
 $ nix-shell --pure shell.nix
 Prelude> import Network.HTTP2.Client
+
+$ nix-shell --pure -p cabal2nix --run "cabal2nix ." > default.nix
+$ nix-build release.nix
+$ result/bin/archetype-nix-haskell
 ```
 
 ## Scratch
