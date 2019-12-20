@@ -1,5 +1,7 @@
 # Archetype of a Haskell project built with Nix
 
+I mostly followed [Getting Started Haskell Project with Nix](https://maybevoid.com/posts/2019-01-27-getting-started-haskell-nix.html) by _Soares Chen_. Any flaws are of course my own.
+
 ```
 [host]$ docker build --tag jeroenvm/nix . # Optional. It is also available on Docker Hub
 [host]$ docker run --rm -ti -v "${HOME}:${HOME}" -w "$(pwd)" jeroenvm/nix
